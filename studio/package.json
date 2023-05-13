@@ -2,38 +2,33 @@
   "name": "newsfeed",
   "private": true,
   "version": "1.0.0",
+  "description": "",
   "main": "package.json",
+  "author": "Urii Rybachok <uriirybachok@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
     "start": "sanity start",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "build": "sanity build"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^3.10.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "sanity": "^3.10.3",
-    "styled-components": "^5.3.9"
-  },
-  "devDependencies": {
+    "@sanity/base": "^2.36.1",
+    "@sanity/core": "^2.36.1",
+    "@sanity/default-layout": "^2.36.1",
+    "@sanity/default-login": "^2.36.1",
+    "@sanity/desk-tool": "^2.36.1",
     "@sanity/eslint-config-studio": "^2.0.1",
-    "@types/react": "^18.0.25",
-    "@types/styled-components": "^5.1.26",
+    "@sanity/vision": "^2.26.0",
     "eslint": "^8.6.0",
-    "prettier": "^2.8.8",
-    "typescript": "^4.9.5"
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "styled-components": "^5.2.0"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drummer-Yurii/news-feed.git"
   }
 }
