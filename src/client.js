@@ -1,4 +1,5 @@
-const sanityClient = require('@sanity/client')
+import sanityClient from "@sanity/client";
+
 const client = sanityClient({
     projectId: 'tsnlsscs',
     dataset: 'production',
