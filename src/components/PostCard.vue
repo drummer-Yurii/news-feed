@@ -9,7 +9,8 @@
             <div class="flex sm:flex-col md:flex-row justify-between items-start md:items-end">
 
                 <div class="flex items-center sm:mb-4 md:mb-0">
-                    <img v-if="post.author.avatar" src="" alt="">
+                    <img v-if="post.author.avatar" :src="CreateURL(post.author.avatar, 100, 100)" 
+                        class="rounded-full mr-4 w-12 h-12" />
                     <div>
                         <p class="text-white mr-4">
                             {{ post.author.full_name }}
