@@ -6,6 +6,14 @@
       <div class="grid gap-4">
         <PostCard v-for="(post, i) in posts" :key="i" :post="post" />
       </div>
+
+      <button
+        v-if="$store.state.total_posts > posts.length"
+        @click="$store.dispatch('LoadMorePosts', 1)"
+        class="btn mt-8"
+      >
+        Load more ({{ $store.state.total_posts - posts.length }})
+      </button>
     </section>
   </main>
 </template>
@@ -28,7 +36,7 @@ export default {
       const posts = computed(() => store.getters.posts)
 
       onMounted(() => {
-        store.dispatch("FetchPosts", 3)
+        store.dispatch("FetchPosts", 2)
 
         const query = '*[_type == "post"]'
 
