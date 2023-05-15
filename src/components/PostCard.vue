@@ -15,7 +15,7 @@
                             {{ post.author.full_name }}
                         </p>
                         <p class="text-gray-500 text-sm">
-                            {{ post._created_at }}
+                            {{ FormatDate(post._createdAt) }}
                         </p>
                     </div>
                 </div>
@@ -27,11 +27,19 @@
 </template>
 
 <script>
+import { FormatDate, CreateURL } from '../utils';
+
 export default {
     props: {
         post: {
             type: Object,
             required: true
+        }
+    },
+    setup () {
+        return {
+            FormatDate,
+            CreateURL
         }
     }
 }
