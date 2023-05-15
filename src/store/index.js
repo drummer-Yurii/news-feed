@@ -36,6 +36,9 @@ export default createStore({
       sanity.fetch(query).then(posts => {
         commit('SET_POSTS', posts)
       })
+    },
+    UpdatePost ({ commit }, post) {
+      commit('SET_POSTS', this.state.posts.map(p => p._id === p._id ? post : p))
     }
   }
 })
