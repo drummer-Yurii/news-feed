@@ -51,7 +51,7 @@ export default {
                 })
                 break;
               case 'disappear':
-                console.log("Post Disappeared", update);
+                store.dispatch('RemovePost', update.documentId)
                 break;
             }
         })
