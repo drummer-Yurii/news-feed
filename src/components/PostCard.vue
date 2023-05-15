@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-800 rounded-lg p-4 flex flex-col sm:flex-row">
-        <img v-if="post.image" src="" alt="">
+        <img v-if="post.image" :src="CreateURL(post.image, 480, 320)" class="block w-full sm:max-w-xs mr-4 object-cover mb-4 sm:mb-0">
         <div class="flex-1 flex flex-col">
             <h3 class="text-lg md:text-2xl font-bold mb-4">{{ post.title }}</h3>
 
