@@ -11,6 +11,8 @@ export default createStore({
   },
   getters: {
     posts: state => state.posts.sort((a, b) => new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()),
+
+    authors: state => state.authors
   },
   mutations: {
     TOGGLE_MENU (state, dir = null) {
@@ -30,11 +32,17 @@ export default createStore({
     },
     INCREMENT_TOTAL_POSTS (state, increment = 1) {
       state.total_posts += increment
+    },
+    SET_AUTHORS (state, authors) {
+      state.authors = authors
     }
   },
   actions: {
     ToggleMenu ({ commit }) {
       commit('TOGGLE_MENU')
+    },
+    CloseMenu ({ commit }) {
+      commit('TOGGLE_MENU', 'close')
     },
     FetchPosts ({ commit }, limit = null) {
       const query = `*[_type == "post"] { ..., author-> } | order(_createdAt desc) ${limit ? `[0...${limit}]` : ''}`
@@ -65,6 +73,14 @@ export default createStore({
 
       sanity.fetch(query).then(posts => {
         commit('SET_POSTS', [...this.state.posts, ...posts])
+      })
+    },
+
+    FetchAuthors ({ commit }) {
+      const query = `*[_type == "author"] | order(full_name)`
+
+      sanity.fetch(query).then(authors => {
+        commit('SET_AUTHORS', authors)
       })
     }
   }
