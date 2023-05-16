@@ -4,7 +4,11 @@
       <h1 class="text-2xl mb-8">Authors</h1>
 
       <div class="grid md:grid-cols-3 gap-4">
-        <!-- Author card -->
+        <AuthorCard 
+          v-for="(author, i) in authors" 
+          :key="i"
+          :author="author"
+        />
       </div>
     </section>
   </main>
@@ -14,7 +18,12 @@
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 
+import AuthorCard from '@/components/AuthorCard.vue';
+
 export default {
+  components: {
+    AuthorCard
+  },
   setup () {
     const store = useStore()
 
